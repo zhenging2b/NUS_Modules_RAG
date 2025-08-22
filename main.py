@@ -96,3 +96,6 @@ def ask_question(req: QuestionRequest):
     for step in graph.stream({"question": req.question}, stream_mode="updates"):
         result = step  # keep the last update
     return {"result": result}
+@app.get("/")
+def home():
+    return {"message": "FastAPI server is running. Use POST /ask to query."}

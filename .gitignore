@@ -1,4 +1,4 @@
-# --- Python ---
+# ---------- Python ----------
 __pycache__/
 *.py[cod]
 *.pyo
@@ -8,32 +8,35 @@ __pycache__/
 *.egg-info/
 .eggs/
 
-# --- Environments ---
+# ---------- Environments ----------
 .env
 .venv/
 venv/
 ENV/
 env/
-llm_rag/       # if you use `conda`/virtualenv folder in project root
+llm_rag/         # your conda/env folder if inside project
 
-# --- Jupyter / IPython ---
+# ---------- Jupyter / IPython ----------
 .ipynb_checkpoints/
 *.ipynb~
 
-# --- VSCode / IDEs ---
-.vscode/
+# ---------- PyCharm / JetBrains ----------
 .idea/
 *.iml
+*.iws
 
-# --- Logs / outputs ---
+# ---------- VSCode ----------
+.vscode/
+
+# ---------- Logs / Outputs ----------
 *.log
 logs/
 *.out
 *.err
 
-# --- OS files ---
+# ---------- OS Files ----------
 .DS_Store
 Thumbs.db
 
-# --- FastAPI/Streamlit build cache ---
-.streamlit/
+# ---------- FastAPI / Streamlit ----------
+.
