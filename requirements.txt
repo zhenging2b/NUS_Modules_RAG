@@ -1,0 +1,9 @@
+langchain
+langchain-huggingface
+langchain-core
+langgraph
+chromadb
+ipython
+typing-extensions
+python-dotenv
+fastapi

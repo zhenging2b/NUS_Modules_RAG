@@ -1,0 +1,39 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+
+# --- Environments ---
+.env
+.venv/
+venv/
+ENV/
+env/
+llm_rag/       # if you use `conda`/virtualenv folder in project root
+
+# --- Jupyter / IPython ---
+.ipynb_checkpoints/
+*.ipynb~
+
+# --- VSCode / IDEs ---
+.vscode/
+.idea/
+*.iml
+
+# --- Logs / outputs ---
+*.log
+logs/
+*.out
+*.err
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+
+# --- FastAPI/Streamlit build cache ---
+.streamlit/
