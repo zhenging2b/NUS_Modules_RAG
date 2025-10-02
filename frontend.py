@@ -31,12 +31,26 @@ if st.button("Submit"):
         # Save thread_id for persistence
         st.session_state.thread_id = result["thread_id"]
 
-        # Extract last assistant message
-        messages = result["result"].get("messages", [])
+        # Extract last assistant message - FIXED
+        # The result has structure: {"generate": {"messages": [...]}}
+        if "generate" in result["result"]:
+            messages = result["result"]["generate"]["messages"]
+        elif "query_or_respond" in result["result"]:
+            messages = result["result"]["query_or_respond"]["messages"]
+
         if messages:
-            answer = messages[-1]["content"]
+            # Find the last AI message
+            for msg in reversed(messages):
+                if hasattr(msg, 'content'):
+                    answer = msg.content
+                    break
+                elif isinstance(msg, dict) and 'content' in msg:
+                    answer = msg['content']
+                    break
+            else:
+                answer = "No response."
         else:
-            answer = "No response."
+            answer = f"Unexpected response format. Result: {result['result']}"
 
     # Display
     st.write("### Answer:")
