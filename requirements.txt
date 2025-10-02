@@ -1,6 +1,8 @@
 langchain
 langchain-huggingface
 langchain-core
+langchain-community
+langchain-google-genai
 langgraph
 chromadb
 ipython
@@ -8,3 +10,4 @@ typing-extensions
 python-dotenv
 fastapi
 streamlit
+sentence-transformers
