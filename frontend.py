@@ -6,7 +6,16 @@ st.title("NUS Module Helper")
 # Keep thread_id across v2 interactions
 if "thread_id" not in st.session_state:
     st.session_state.thread_id = None
+st.write("### Graph Architectures")
+col1, col2 = st.columns(2)
 
+with col1:
+    st.image("images/v1.png", caption="v1 - Memoryless", width=150)
+
+with col2:
+    st.image("images/v2.png", caption="v2 - With Memory", width=150)
+
+st.write("---")
 # Dropdown to select version
 version = st.selectbox("Choose version:", ["v1", "v2"])
 

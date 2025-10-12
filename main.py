@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from graphs.v1_graph import graph_v1
 from graphs.v2_graph import graph_v2
+from langchain_core.messages import HumanMessage
 import uuid
 
 
@@ -26,9 +27,16 @@ def ask_question(req: QuestionRequest):
 def ask_v2(req: QuestionRequest):
     thread_id = req.thread_id or str(uuid.uuid4())
     config = {"configurable": {"thread_id": thread_id}}
+
+    # CRITICAL FIX: Use HumanMessage object, not dict
     result = None
-    for step in graph_v2.stream({"messages": [{"role": "user", "content": req.question}]}, config=config, stream_mode="updates"):
+    for step in graph_v2.stream(
+            {"messages": [HumanMessage(content=req.question)]},
+            config=config,
+            stream_mode="updates"
+    ):
         result = step
+
     return {"thread_id": thread_id, "result": result}
 
 @app.get("/")
