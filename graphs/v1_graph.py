@@ -1,9 +1,11 @@
+from typing import Any
+
 from langchain import hub
-from langgraph.graph import StateGraph, START
-from typing_extensions import TypedDict, Annotated
-from typing import List, Any
-from utils.llm import llm, vector_store
+from langgraph.graph import START, StateGraph
+from typing_extensions import TypedDict
+
 from models.schemas import ModuleQuery
+from utils.llm import llm, vector_store
 
 # # ---------- State Schema ----------
 # class ModuleQuery(TypedDict):
@@ -12,7 +14,7 @@ from models.schemas import ModuleQuery
 class State(TypedDict):
     question: str
     query: ModuleQuery
-    context: List[Any]
+    context: list[Any]
     answer: str
 
 prompt_template = hub.pull("rlm/rag-prompt")

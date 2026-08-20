@@ -1,9 +1,14 @@
 from langchain.chat_models import init_chat_model
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.vectorstores import Chroma
-from utils.config import GOOGLE_API_KEY, LANGSMITH_API_KEY
+from langchain_huggingface import HuggingFaceEmbeddings
 
-llm = init_chat_model("gemini-2.5-flash", model_provider="google_genai")
+from utils.config import GOOGLE_API_KEY
+
+llm = init_chat_model(
+    "gemini-2.5-flash",
+    model_provider="google_genai",
+    google_api_key=GOOGLE_API_KEY,
+)
 
 embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
 vector_store = Chroma(

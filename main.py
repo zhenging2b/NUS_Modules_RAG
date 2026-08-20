@@ -1,10 +1,11 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-from graphs.v1_graph import graph_v1
-from graphs.v2_graph import graph_v2
-from langchain_core.messages import HumanMessage
 import uuid
 
+from fastapi import FastAPI
+from langchain_core.messages import HumanMessage
+from pydantic import BaseModel
+
+from graphs.v1_graph import graph_v1
+from graphs.v2_graph import graph_v2
 
 # ---------- FastAPI App ----------
 app = FastAPI()

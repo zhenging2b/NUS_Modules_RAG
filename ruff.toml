@@ -1,0 +1,11 @@
+extend-exclude = [
+    "*.ipynb",
+    "tutorial for langchain",
+    "computing_modules_index",
+    "nus_modules_index",
+    "nus_modules_index_desktop",
+]
+
+[lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]  # line length not yet enforced; codebase isn't black-formatted
